@@ -1,3 +1,12 @@
-import React from 'react';
+import React from "react";
+import Card from "../components/Card"
 
-export default savedtours;
+function SavedTours(){
+	return(
+		<div>
+			<h1>Saved Tours</h1>
+			
+		</div>
+	)
+}
+export default SavedTours;
