@@ -25,13 +25,13 @@ function Navbar() {
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a id class="nav-link" href="./aboutme.html">About </a>
+            <a id class="nav-link" href="/login">Login </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./portfolio.html">Portfolio </a>
+            <a class="nav-link" href="/signup">SignUp </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./contact.html">Contact</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
         </ul>
       </div>
