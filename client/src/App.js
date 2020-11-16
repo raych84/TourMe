@@ -6,7 +6,7 @@ import Footer from "./components/Footer"
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import SavedTours from "./pages/Savedtours";
+import SavedTours from "./pages/SavedTours";
 
 
 function App() {
