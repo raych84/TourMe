@@ -6,7 +6,7 @@ import React from "react";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="./aboutme.html">
+      <a className="navbar-brand" href="/">
       
       </a>
       <button
