@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SavedTours from "./pages/SavedTours";
+import Searchbar from "./components/Searchbar";
 
 
 function App() {
@@ -19,9 +20,12 @@ function App() {
        <Route exact path = "/signup" component = {Signup} />
        <Route exact path = "/login" component = {Login} />
        <Route exact path = "/savedtours" component = {SavedTours}/>
+     
+
        <Footer />
      </div>
    </Router>
+ 
   );
 }
 
