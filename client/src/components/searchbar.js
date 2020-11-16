@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./Searchbar.css";
 
 
 class Searchbar extends Component {
@@ -47,20 +48,20 @@ class Searchbar extends Component {
     render() {
       // Notice how each input has a `value`, `name`, and `onChange` prop
       return (
-        <div>
+        <div className="searchBarmenu">
 
           <form>
       <div className="form-group">
-        <label htmlFor="search">Let's see what we can find.</label>
-        <input className="searchBar"
+        <label htmlFor="search" className="title1">Let's see what we can find.</label>
+       <br></br>
+        <input className='searchBar1'
           onChange={this.handleInputChange}
           value={this.search}
           name="search"
           type="text"
-          className="form-control"
           placeholder="Search for a City"
           id="search"
-        />
+        /><br></br>
         <button onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
           Tour Me!
         </button>

@@ -7,7 +7,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SavedTours from "./pages/SavedTours";
-import Searchbar from "./components/Searchbar";
+
 
 
 function App() {
