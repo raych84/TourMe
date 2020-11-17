@@ -52,7 +52,7 @@ class Searchbar extends Component {
 
           <form>
       <div className="form-group">
-        <label htmlFor="search" className="title1">Let's see what we can find.</label>
+        <label htmlFor="search" className="title1">Let's Tour Around.</label>
        <br></br>
         <input className='searchBar1'
           onChange={this.handleInputChange}
@@ -62,7 +62,7 @@ class Searchbar extends Component {
           placeholder="Search for a City"
           id="search"
         /><br></br>
-        <button onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
+        <button onClick={this.handleFormSubmit} className="btn btn-outline-secondary mt-3">
           Tour Me!
         </button>
       </div>

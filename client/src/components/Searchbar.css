@@ -3,8 +3,12 @@
 }
 .title1{
    
-   color: red;
+   color: rgb(117, 114, 114)(92, 92, 92);
+   font-size: 30px;
 }
   .searchBar1{
-      margin-left: 3px;
+     padding-left: 60px;
+  }
+  span{
+      color: blue
   }
