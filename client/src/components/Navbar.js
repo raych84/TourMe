@@ -20,18 +20,16 @@ function Navbar() {
         <span className="navbar-toggler-icon" />
       </button>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
 
-        <ul class="navbar-nav">
+        <ul className="navbar-nav">
 
-          <li class="nav-item">
-            <a id class="nav-link" href="/login">Login </a>
+          <li className="nav-item">
+            <a className="nav-link" href="/loginsignup">Login or Signup </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">SignUp </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+          
+          <li className="nav-item">
+            <a className="nav-link" href="/">Home</a>
           </li>
         </ul>
       </div>

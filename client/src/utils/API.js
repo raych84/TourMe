@@ -1,6 +1,14 @@
 import axios from "axios";
 
+
+const BASEURL = "http://webapi.globusandcosmos.com/GetAllAvailableTours";
+const APIKEY = "C11x16A!";
+
 export default {
+	GetAllAvailableTours: function (query) {
+		return axios.get(BASEURL + query + APIKEY)
+	},
+
 	getAllSaved: function () {
 		return axios.get("/api/saved");
 	},
