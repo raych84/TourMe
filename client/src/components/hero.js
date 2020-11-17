@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Hero() {
   return (
 
@@ -15,6 +16,7 @@ function Hero() {
       <div className="carousel-item">
         <img src="../images/Moscanbul.jpg" className="d-block w-100" alt="Moscanbul" />
       </div>
+
     </div>
   </div>
   );

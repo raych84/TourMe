@@ -9,8 +9,10 @@ import Login from "./pages/Login";
 import SavedTours from "./pages/SavedTours";
 
 
+
 function App() {
   return (
+
     <Router>
       <div>
         <Navbar />
@@ -22,6 +24,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+
   );
 }
 
