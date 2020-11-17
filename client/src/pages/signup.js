@@ -8,7 +8,7 @@ function Signup() {
       <div className="signup" style={{ textAlign: "center" }}>
         <h3>Don't have an account? Signup.</h3>
         <div className="form">
-          <img src="https://image.shutterstock.com/image-photo/famous-monuments-world-grouped-together-260nw-313571078.jpg" />
+          <img src="./" />
           <span>
             <h2>Sign Up</h2>
             <br />
