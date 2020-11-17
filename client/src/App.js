@@ -7,12 +7,14 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SavedTours from "./pages/SavedTours";
+import { StoreProvider } from "./utils/GlobalState";
 
 
 function App() {
   return (
     <Router>
       <div>
+        <StoreProvider>
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
@@ -20,6 +22,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/savedtours" component={SavedTours} />
         <Footer />
+        </StoreProvider>
       </div>
     </Router>
   );
