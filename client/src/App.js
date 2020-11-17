@@ -10,8 +10,10 @@ import SavedTours from "./pages/SavedTours";
 import { StoreProvider } from "./utils/GlobalState";
 
 
+
 function App() {
   return (
+
     <Router>
       <div>
         <StoreProvider>
@@ -25,6 +27,7 @@ function App() {
         </StoreProvider>
       </div>
     </Router>
+
   );
 }
 
