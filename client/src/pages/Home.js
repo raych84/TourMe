@@ -8,6 +8,7 @@ function Home() {
 	return (
 		<div>
 			<Hero />
+			
 
 			<h1>TourMe</h1>
 			<p>
