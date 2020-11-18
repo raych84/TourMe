@@ -8,8 +8,8 @@ const toursSchema = new Schema({
 	date: { type: String, required: true },
 	price: { type: Number, required: true },
 	details: { type: String, required: true },
-	itinerary: { type: String, required: true }
-
+	itinerary: { type: String, required: true },
+	image: { type: String, required: true }
 });
 
 const Tours = mongoose.model("Tours", toursSchema);
