@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
 import { REMOVE_FAVORITE, LOADING, UPDATE_FAVORITES } from "../utils/actions";
 
-const FavoritesList = () => {
+const SavedTours = () => {
   const [state, dispatch] = useStoreContext();
 
-  const getFavorites = () => {
+  const getAllSavedTours = () => {
     dispatch({ type: LOADING });
     dispatch({ type: UPDATE_FAVORITES });
   };
 
-  const removeFromFavorites = id => {
+  const removeSavedTour = id => {
     dispatch({
       type: REMOVE_FAVORITE,
       _id: id
@@ -22,15 +22,15 @@ const FavoritesList = () => {
   };
 
   useEffect(() => {
-    getFavorites();
+    getAllSavedTours();
   }, []);
 
   return (
     <div className="container mb-5 mt-5">
-      <h1 className="text-center">Here's All of Your Favorite Posts</h1>
+      <h1 className="text-center">Here's All of Your Favorite Tours</h1>
       {state.favorites.length ? (
         <List>
-          <h3 className="mb-5 mt-5">Click on a post to view in detail</h3>
+          <h3 className="mb-5 mt-5">Click on a tour name to view in detail</h3>
           {state.favorites.map(post => (
             <ListItem key={post._id}>
               <Link to={"/posts/" + post._id}>
@@ -38,7 +38,7 @@ const FavoritesList = () => {
                   {post.title} by {post.author}
                 </strong>
               </Link>
-              <DeleteButton onClick={() => removeFromFavorites(post._id)} />
+              <DeleteButton onClick={() => removeSavedTour(post._id)} />
             </ListItem>
           ))}
         </List>
@@ -52,4 +52,4 @@ const FavoritesList = () => {
   );
 };
 
-export default FavoritesList;
+export default SavedTours;
