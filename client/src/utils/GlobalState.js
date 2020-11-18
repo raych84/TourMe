@@ -85,13 +85,6 @@ import {
   ADD_FAVORITE,
   UPDATE_FAVORITES,
   REMOVE_FAVORITE,
-
-import React, { createContext, useReducer, useContext } from "react";
-import {
-  SET_CURRENT_TOUR,
-  REMOVE_TOUR,
-  UPDATE_TOUR,
-  ADD_TOUR, 
   LOADING
 } from "./actions";
 
@@ -100,7 +93,6 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-
   case SET_CURRENT_POST:
     return {
       ...state,
@@ -149,34 +141,6 @@ const reducer = (state, action) => {
       ...state,
       favorites: state.favorites.filter((post) => {
         return post._id !== action._id; 
-
-  case SET_CURRENT_TOUR:
-    return {
-      ...state,
-      currentTour: action.tour,
-      loading: false
-    };
-
-  case UPDATE_TOUR:
-    return {
-      ...state,
-      tour: [...action.tour],
-      loading: false
-    };
-
-  case ADD_TOUR:
-    return {
-      ...state,
-      tours: [action.tour, ...state.tours],
-      loading: false
-    };
-
-  case REMOVE_TOUR:
-    return {
-      ...state,
-      tours: state.tours.filter((tour) => {
-        return tour._id !== action._id; 
-
       })
     };
 
@@ -193,7 +157,6 @@ const reducer = (state, action) => {
 
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
-
     posts: [],
     currentPost: {
       _id: 0,
@@ -203,16 +166,6 @@ const StoreProvider = ({ value = [], ...props }) => {
     },
     favorites: [],
     loading: false
-
-    tours: [],
-    currentTours: {
-      _id: 0,
-      city: "",
-      state: "",
-	  country: "",
-	  body: ""
-    }
-
   });
 
   return <Provider value={[state, dispatch]} {...props} />;
