@@ -1,4 +1,13 @@
 .logoPic {
     height: 40px;
-    padding-left:550px;
+
+}
+.navbar-brand{
+    text-align: center;
+    width:30%;
+    margin-left: 35%;
+}
+
+#homeNav {
+ float: left;
 }
