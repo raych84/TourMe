@@ -17,12 +17,12 @@ function App() {
     <Router>
       <div>
         <StoreProvider>
-        <Navbar />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />       
-        <Route exact path="/loginsignup" component={LoginSignup} />
-        <Route exact path="/savedtours" component={SavedTours} />
-        <Footer />
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/loginsignup" component={LoginSignup} />
+          <Route exact path="/savedtours" component={SavedTours} />
+          <Footer />
         </StoreProvider>
       </div>
     </Router>
