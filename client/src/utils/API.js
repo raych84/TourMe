@@ -1,12 +1,12 @@
 import axios from "axios";
 
 
-const BASEURL = "http://webapi.globusandcosmos.com/GetAllAvailableTours";
-const APIKEY = "C11x16A!";
+// const BASEURL = "http://webapi.globusandcosmos.com/GetAllAvailableTours";
+// const APIKEY = "C11x16A!";
 
 export default {
-	GetAllAvailableTours: function (query) {
-		return axios.get(BASEURL + query + APIKEY)
+	searchCity: function (query) {
+		return axios.get("https://www.mapquestapi.com/search/v4/place?sort=relevance&feedback=false&key=k6jUAGTlbhX3baOZ27xGACKQbJxEURyV&q=" + query)
 	},
 
 	getAllSaved: function () {

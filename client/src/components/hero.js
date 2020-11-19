@@ -1,5 +1,5 @@
 import React from "react";
-import Searchbar from "./Searchbar"
+
 
 
 function Hero() {
@@ -17,7 +17,7 @@ function Hero() {
       <div className="carousel-item">
         <img src="../images/Moscanbul.jpg" className="d-block w-100" alt="Moscanbul" />
       </div>
-      <Searchbar />
+  
     </div>
   </div>
   
