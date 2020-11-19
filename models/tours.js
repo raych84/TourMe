@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const toursSchema = new Schema({
 	title: { type: String, required: true },
 	duration: { type: String, required: true },
-	location: { type: String, required: true },
 	date: { type: String, required: true },
 	price: { type: Number, required: true },
 	details: { type: String, required: true },
