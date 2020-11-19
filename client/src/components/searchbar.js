@@ -13,11 +13,11 @@ class Searchbar extends Component {
     };
   
     componentDidMount() {
-      this.searchTours();
+      this.GetAllAvailableTours();
     }
   
-    searchTours = query => {
-      API.searchTours(query)
+    GetAllAvailableTours = query => {
+      API.GetAllAvailableTours(query)
         .then(res => this.setState({ result: res.data }))
         .catch(err => console.log(err));
     };
