@@ -17,7 +17,7 @@ class Searchbar extends Component {
     }
   
     searchTours = query => {
-      API.GetAllAvailableTours(query)
+      API.searchTours(query)
         .then(res => this.setState({ result: res.data }))
         .catch(err => console.log(err));
     };
