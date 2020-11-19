@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./Searchbar.css";
 import API from "../utils/API";
+import SearchResults from "./SearchResults";
 
 
 
@@ -16,7 +17,7 @@ class Searchbar extends Component {
     }
   
     searchTours = query => {
-      API.GetAllAvailableTours(query)
+      API.searchTours(query)
         .then(res => this.setState({ result: res.data }))
         .catch(err => console.log(err));
     };
@@ -55,6 +56,7 @@ class Searchbar extends Component {
         <button onClick={this.handleFormSubmit} className="btn btn-outline-secondary mt-3">
           Tour Me!
         </button>
+        <SearchResults results={this.state.results}/>
       </div>
     </form>
   

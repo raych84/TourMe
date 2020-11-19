@@ -1,7 +1,4 @@
-
-// export const UPDATE_TOUR = "UPDATE_TOUR";
 // export const REMOVE_TOUR = "REMOVE_TOUR";
-// export const SET_CURRENT_TOUR = "SET_CURRENT_TOUR";
 // export const ADD_TOUR = "ADD_TOUR";
 // export const LOADING = "LOADING";
 export const UPDATE_POSTS = "UPDATE_POSTS";
@@ -13,5 +10,4 @@ export const LOADING = "LOADING";
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const UPDATE_FAVORITES = "UPDATE_FAVORITES";
-
 
