@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 // const BASEURL = "http://webapi.globusandcosmos.com/GetAllAvailableTours";
-// const APIKEY = "C11x16A!";
+// const APIKEY = "5ae2e3f221c38a28845f05b6a4d9bb81e481a101b1ab4343d0616713";
 
 export default {
 	searchCity: function (query) {
@@ -10,15 +10,15 @@ export default {
 	},
 
 	getAllSaved: function () {
-		return axios.get("/api/saved");
+		return axios.get("/api/tours");
 	},
 	getSaved: function (id) {
-		return axios.get("/api/saved" + id);
+		return axios.get("/api/tours" + id);
 	},
 	deleteSaved: function (id) {
-		return axios.delete("/api/saved/" + id);
+		return axios.delete("/api/tours/" + id);
 	},
 	saveTour: function (postData) {
-		return axios.post("/api/saved", postData);
+		return axios.post("/api/tours", postData);
 	}
 };
