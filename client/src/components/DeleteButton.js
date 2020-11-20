@@ -6,7 +6,7 @@ import React from "react";
 function DeleteButton(props) {
   return (
     <span className="delete-btn" {...props} role="button" tabIndex="0">
-      ✗
+      <button type="button" className="btn btn-success btn-sm"> Remove Tour</button>
     </span>
   );
 }

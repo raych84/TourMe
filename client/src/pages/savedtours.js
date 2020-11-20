@@ -1,55 +1,77 @@
-
-import React, { useEffect } from "react";
-import { ListItem, List } from "../components/List";
+import React, { useEffect, useState } from "react";
+import API from "../utils/API";
 import DeleteButton from "../components/DeleteButton";
-import { Link } from "react-router-dom";
-import { useStoreContext } from "../utils/GlobalState";
-import { REMOVE_FAVORITE, LOADING, UPDATE_FAVORITES } from "../utils/actions";
+import { List, ListItem } from "../components/List";
+import { Col, Row, Container } from "../components/Grid";
 
-const SavedTours = () => {
-  const [state, dispatch] = useStoreContext();
 
-  const getAllSavedTours = () => {
-    dispatch({ type: LOADING });
-    dispatch({ type: UPDATE_FAVORITES });
-  };
 
-  const removeSavedTour = id => {
-    dispatch({
-      type: REMOVE_FAVORITE,
-      _id: id
-    });
-  };
+function SavedTours() {
+  const [tours, setTours] = useState([])
+  const [formObject, setFormObject] = useState({})
 
   useEffect(() => {
-    getAllSavedTours();
-  }, []);
+    loadTours()
+  }, [])
 
+  function loadTours() {
+    API.getAllSaved()
+      .then(res =>
+        setTours(res.data)
+      )
+      .catch(err => console.log(err));
+  };
+  function deleteSaved(id) {
+    API.deleteSaved(id)
+      .then(res => loadTours())
+      .catch(err => console.log(err));
+  }
+
+
+  // When the form is submitted, use the API.saveBook method to save the book data
+  // Then reload books from the database
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.title && formObject.location) {
+      API.saveTour({
+        title: formObject.title,
+        duration: formObject.duration,
+        location: formObject.location,
+        date: formObject.date,
+        price: formObject.price,
+        details: formObject.details,
+        itinerary: formObject.itinerary,
+      })
+        .then(res => loadTours())
+        .catch(err => console.log(err));
+    }
+  };
   return (
-    <div className="container mb-5 mt-5">
-      <h1 className="text-center">Here's All of Your Favorite Tours</h1>
-      {state.favorites.length ? (
-        <List>
-          <h3 className="mb-5 mt-5">Click on a tour name to view in detail</h3>
-          {state.favorites.map(post => (
-            <ListItem key={post._id}>
-              <Link to={"/posts/" + post._id}>
-                <strong>
-                  {post.title} by {post.author}
-                </strong>
-              </Link>
-              <DeleteButton onClick={() => removeSavedTour(post._id)} />
-            </ListItem>
-          ))}
-        </List>
-      ) : (
-        <h3>You haven't added any favorites yet!</h3>
-      )}
-      <div className="mt-5">
-        <Link to="home">Back to home</Link>
-      </div>
-    </div>
-  );
-};
+    <Container fluid>
+      <Row>
+        <Col size="md-12">
+     
+      <h1 style={{textAlign:"center"}}>Your Saved Tours:</h1> 
+           {tours.length ? (
+          <List style={{textAlign:"center"}}>
+            {tours.map(tour => (
+              <ListItem key={tour._id}>
+                {tour.title} going to {tour.location}
+                {tour.duration}
+                {tour.price}
+                {tour.itinerary}
+                <br/>
+                <DeleteButton onClick={() => deleteSaved(tour._id)} />
+              </ListItem>
+            ))}
+          </List>
+       ) : (
+       <h3>No Saved Tours</h3>
+       )}
+   </Col>
+   </Row>
+    </Container >
 
+  )
+}
 export default SavedTours;
