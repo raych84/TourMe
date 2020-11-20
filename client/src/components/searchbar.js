@@ -56,8 +56,8 @@ class Searchbar extends Component {
           type="text"
           placeholder="Search for a City"
           id="search"
-        /><br></br>
-        <button onClick={this.handleFormSubmit} className="btn btn-outline-secondary mt-3">
+        /><br></br><br></br>
+        <button onClick={this.handleFormSubmit} className="btn btn-outline-light">
           Tour Me!
         </button>
         <SearchResults results={this.state.results}/>
