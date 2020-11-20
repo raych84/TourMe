@@ -1,26 +1,24 @@
 import React from "react";
-import Searchbar from "./Searchbar"
+import "./Hero.css"
+import Searchbar from "../components/Searchbar";
 
 
 function Hero() {
   return (
 
-    
-    <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
-    <div className="carousel-inner">
-      <div className="carousel-item active">
-        <img src="../images/RioLondoneiro.jpg" className="d-block w-100" alt="Rio Londoneiro" />
+
+    <div className="hero-image">
+      
+      <div className="hero-text">
+
+        <h1>
+        DISCOVER THE UNDISCOVERED
+         </h1>
+        <Searchbar />
       </div>
-      <div className="carousel-item">
-        <img src="../images/Dubaris.jpg" className="d-block w-100" alt="Dubaris" />
-      </div>
-      <div className="carousel-item">
-        <img src="../images/Moscanbul.jpg" className="d-block w-100" alt="Moscanbul" />
-      </div>
-      <Searchbar />
+     
     </div>
-  </div>
-  
+
   );
 }
 

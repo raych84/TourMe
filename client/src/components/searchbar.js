@@ -13,12 +13,16 @@ class Searchbar extends Component {
     };
   
     componentDidMount() {
-      this.GetAllAvailableTours();
+      this.searchCity("Paris");
     }
   
-    GetAllAvailableTours = query => {
-      API.GetAllAvailableTours(query)
-        .then(res => this.setState({ result: res.data }))
+    searchCity = query => {
+      console.log("you're looking for " , query)
+      API.searchCity(query)
+        .then(res => {
+          console.log(res.data)
+          this.setState({ result: res.data })
+          })
         .catch(err => console.log(err));
     };
   
@@ -33,7 +37,7 @@ class Searchbar extends Component {
     // When the form is submitted, search the OMDB API for the value of `this.state.search`
     handleFormSubmit = event => {
       event.preventDefault();
-      this.searchTours(this.state.search);
+      this.searchCity(this.state.search);
     };
   
     render() {
@@ -52,8 +56,8 @@ class Searchbar extends Component {
           type="text"
           placeholder="Search for a City"
           id="search"
-        /><br></br>
-        <button onClick={this.handleFormSubmit} className="btn btn-outline-secondary mt-3">
+        /><br></br><br></br>
+        <button onClick={this.handleFormSubmit} className="btn btn-outline-light">
           Tour Me!
         </button>
         <SearchResults results={this.state.results}/>
