@@ -5,8 +5,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import SavedTours from "./pages/SavedTours";
-import { StoreProvider } from "./utils/GlobalState";
 import LoginSignup from "./pages/LoginSignup";
+import Hero from "./components/Hero";
 
 
 
@@ -16,14 +16,13 @@ function App() {
 
     <Router>
       <div>
-        <StoreProvider>
           <Navbar />
+          <Hero />
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/loginsignup" component={LoginSignup} />
           <Route exact path="/savedtours" component={SavedTours} />
-          <Footer />
-        </StoreProvider>
+          <Footer />    
       </div>
     </Router>
 
