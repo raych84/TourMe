@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const toursSchema = new Schema({
 	title: { type: String, required: true },
 	duration: { type: String, required: true },
+	country: { type: String, required: true },
+	state: { type: String, required: true },
 	date: { type: String, required: true },
+	city: { type: String, required: true },
 	price: { type: Number, required: true },
 	details: { type: String, required: true },
 	itinerary: { type: String, required: true },
