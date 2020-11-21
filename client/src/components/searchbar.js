@@ -1,81 +1,87 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "../styles/Searchbar.css";
 import API from "../utils/API";
-import { Container } from "./Grid";
-import SearchResults from "./SearchResults";
+import { Container, Row, Col } from "./Grid";
+import { SearchResults, TourListItems, } from "./SearchResults";
+import { Form, Input, FormBtn } from "./Form";
 
 
 
+function Searchbar() {
 
-class Searchbar extends Component {
-  state = {
-    search: "",
-    tours: [],
-    results: [],
-    error: ""
+  const [tours, setTours] = useState([]);
+  const [tourSearch, setTourSearch] = useState("");
+
+  const handleInputChange = event => {
+    // Destructure the name and value properties off of event.target
+    // Update the appropriate state
+    const { value } = event.target;
+    setTourSearch(value);
   };
 
-  // When the component mounts, get a list of all available base breeds and update this.state.breeds
-  componentDidMount() {
-    API.getTours()
-      .then(res => this.setState({ tours: res.data.message }))
-      .catch(err => console.log(err));
-  }
-
-  handleInputChange = event => {
-    this.setState({ search: event.target.value });
-  };
-
-  handleFormSubmit = event => {
+  const handleFormSubmit = event => {
+    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
     event.preventDefault();
-    API.getTours(this.state.search)
-      .then(res => {
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        this.setState({ results: res.data.message, error: "" });
-      })
-      .catch(err => this.setState({ error: err.message }));
+    API.getTours(tourSearch)
+      .then(res => setTours(res.data))
+      .catch(err => console.log(err));
   };
-  render() {
-    return (
 
-      <Container style={{ minHeight: "80%" }}>
-        <h1 className="text-center">Search for your next tour!</h1>
-        {/* <Alert className="alert-error"
-            type="danger"
-            style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
-          >
-            {this.state.error}
-          </alert> */}
-        <div className="searchBarmenu">
+  return (
+    <div>
 
-          <form>
-            <div className="form-group">
-              <label htmlFor="search" className="title1">Let's Tour Around.</label>
-              <br></br>
-              <input className='searchBar1'
-                onChange={this.handleInputChange}
-                value={this.search}
-                name="search"
-                type="text"
-                placeholder="Search for a City"
-                id="search"
-              /><br></br><br></br>
-              <button onClick={this.handleFormSubmit} className="btn btn-outline-light">
-                Tour Me!
-</button>
-              <SearchResults results={this.state.results} />
-            </div>
-          </form>
-        </div>
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <form>
+              <Container>
+                <Row>
+                  <Col size="xs-9 sm-10">
+                    <div className="searchBarmenu">
+                      <form>
+                        <div className="form-group">
+                          <label htmlFor="search" className="title1">Let's Tour Around.</label>
+                          <br />
+                          <input className="searchBar1"
+                            name="TourSearch"
+                            value={tourSearch}
+                            onChange={handleInputChange}
+                            placeholder="Search Tours"
+                          />
+                          <br />
+                          <button onClick={handleFormSubmit} className="btn btn-outline-light">
+                            Tour Me!
+                        </button>
+                        </div>
+                      </form>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </form>
+          </Col>
+        </Row>
+     
+        <Row>
+          <Col size="xs-12">
+            <SearchResults>
+              {tours.map(recipe => {
+                return (
+                  <TourListItems
+                    key={tours.title}
+                    title={tours.title}
+                    location={tours.location}
+                    image={tours.image}
+                  />
+                );
+              })}
+            </SearchResults>
+          </Col>
+        </Row>
       </Container>
-
-
-    );
-  }
+    </div>
+  );
 }
-
 
 
 export default Searchbar;

@@ -53,7 +53,9 @@ function SavedTours() {
        ) : (
        <h3 style={{textAlign:"center"}}>No Saved Tours. Let's change that! </h3>
        )}
-       
+         <a className="navbar-brand" href="/">
+        Search for my next tour!
+      </a>
    </Col>
    </Row>
     </Container >
