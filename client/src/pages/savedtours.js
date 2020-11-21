@@ -15,7 +15,7 @@ function SavedTours() {
   }, [])
 
   function loadTours() {
-    API.getAllSaved()
+    API.getSaved()
       .then(res =>
         setTours(res.data)
       )
@@ -30,28 +30,13 @@ function SavedTours() {
 
   // When the form is submitted, use the API.saveBook method to save the book data
   // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.title && formObject.location) {
-      API.saveTour({
-        title: formObject.title,
-        duration: formObject.duration,
-        location: formObject.location,
-        date: formObject.date,
-        price: formObject.price,
-        details: formObject.details,
-        itinerary: formObject.itinerary,
-      })
-        .then(res => loadTours())
-        .catch(err => console.log(err));
-    }
-  };
+ 
   return (
     <Container fluid>
       <Row>
         <Col size="md-12">
      
-      <h1 style={{textAlign:"center"}}>Your Saved Tours:</h1> 
+      <h2 style={{textAlign:"center"}}>Your Saved Tours:</h2> 
            {tours.length ? (
           <List style={{textAlign:"center"}}>
             {tours.map(tour => (
@@ -66,8 +51,9 @@ function SavedTours() {
             ))}
           </List>
        ) : (
-       <h3>No Saved Tours</h3>
+       <h3 style={{textAlign:"center"}}>No Saved Tours. Let's change that! </h3>
        )}
+       
    </Col>
    </Row>
     </Container >

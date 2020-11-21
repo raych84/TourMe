@@ -5,7 +5,10 @@ class LoginSignup extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentView: "signUp"
+      currentView: "signUp",
+      username: "",
+      password: "",
+      email: ""
     }
   }
 
@@ -44,8 +47,8 @@ class LoginSignup extends React.Component {
                 </li>
               </ul>
             </fieldset>
-            <button>Submit</button>
-            <button type="button" onClick={() => this.changeView("logIn")}>Have an Account?</button>
+            <button type="create-acct-button" onClick={ () => this.changeView("/user")}>Submit</button>
+            <button type="button" onClick={ () => this.changeView("logIn")}>Have an Account?</button>
           </form>
          
         )
@@ -66,13 +69,13 @@ class LoginSignup extends React.Component {
                   <input type="password" id="password" required />
                 </li>
                 <li>
-                  <i />
-                  <a onClick={() => this.changeView("PWReset")} href="#">Forgot Password?</a>
+                  <i/>
+                  <a onClick={ () => this.changeView("PWReset")} href="/">Forgot Password?</a>
                 </li>
               </ul>
             </fieldset>
-            <button>Login</button>
-            <button type="button" onClick={() => this.changeView("signUp")}>Create an Account</button>
+            <button type="login-button" onClick={ () => this.changeView("/user")}>Login</button>
+            <button type="button" onClick={ () => this.changeView("signUp")}>Create an Account</button>
           </form>
         )
       case "PWReset":
