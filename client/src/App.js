@@ -17,13 +17,13 @@ function App() {
 
     <Router>
       <div>
-          <Navbar />         
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/loginsignup" component={LoginSignup} />
-          <Route exact path="/savedtours" component={SavedTours} />
-          <Route exact path="/user" component={User} />
-          <Footer />    
+        <Navbar />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/loginsignup" component={LoginSignup} />
+        <Route exact path="/savedtours" component={SavedTours} />
+        <Route exact path="/user" component={User} />
+        <Footer />
       </div>
     </Router>
 

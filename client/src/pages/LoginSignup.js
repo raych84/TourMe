@@ -1,7 +1,8 @@
 import React from "react";
 
+
 class LoginSignup extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       currentView: "signUp",
@@ -18,46 +19,54 @@ class LoginSignup extends React.Component {
   }
 
   currentView = () => {
-    switch(this.state.currentView) {
+    switch (this.state.currentView) {
       case "signUp":
         return (
+       
           <form>
-            <h2>Sign Up!</h2>
+            <h2>
+              Sign up!
+     </h2>
             <fieldset>
               <legend>Create Account</legend>
               <ul>
                 <li>
                   <label for="username">Username:</label>
-                  <input type="text" id="username" required/>
+                  <br/>
+                  <input type="text" id="username" required />
                 </li>
                 <li>
                   <label for="email">Email:</label>
-                  <input type="email" id="email" required/>
+                  <br/>
+                  <input type="email" id="email" required />
                 </li>
                 <li>
                   <label for="password">Password:</label>
-                  <input type="password" id="password" required/>
+                  <br/>
+                  <input type="password" id="password" required />
                 </li>
               </ul>
             </fieldset>
             <button type="create-acct-button" onClick={ () => this.changeView("/user")}>Submit</button>
             <button type="button" onClick={ () => this.changeView("logIn")}>Have an Account?</button>
           </form>
+         
         )
       case "logIn":
         return (
           <form>
+
             <h2>Welcome Back!</h2>
             <fieldset>
               <legend>Log In</legend>
               <ul>
                 <li>
                   <label for="username">Username:</label>
-                  <input type="text" id="username" required/>
+                  <input type="text" id="username" required />
                 </li>
                 <li>
                   <label for="password">Password:</label>
-                  <input type="password" id="password" required/>
+                  <input type="password" id="password" required />
                 </li>
                 <li>
                   <i/>
@@ -72,22 +81,22 @@ class LoginSignup extends React.Component {
       case "PWReset":
         return (
           <form>
-          <h2>Reset Password</h2>
-          <fieldset>
-            <legend>Password Reset</legend>
-            <ul>
-              <li>
-                <em>A reset link will be sent to your inbox!</em>
-              </li>
-              <li>
-                <label for="email">Email:</label>
-                <input type="email" id="email" required/>
-              </li>
-            </ul>
-          </fieldset>
-          <button>Send Reset Link</button>
-          <button type="button" onClick={ () => this.changeView("logIn")}>Go Back</button>
-        </form>
+            <h2>Reset Password</h2>
+            <fieldset>
+              <legend>Password Reset</legend>
+              <ul>
+                <li>
+                  <em>A reset link will be sent to your inbox!</em>
+                </li>
+                <li>
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" required />
+                </li>
+              </ul>
+            </fieldset>
+            <button>Send Reset Link</button>
+            <button type="button" onClick={() => this.changeView("logIn")}>Go Back</button>
+          </form>
         )
       default:
         break

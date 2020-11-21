@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Hero.css"
-import Searchbar from "../components/Searchbar";
+import Searchbar from "./Searchbar";
 
 
 function Hero() {
@@ -8,15 +8,15 @@ function Hero() {
 
 
     <div className="hero-image">
-      
+
       <div className="hero-text">
 
         <h1>
-        DISCOVER THE UNDISCOVERED
+          DISCOVER THE UNDISCOVERED
          </h1>
         <Searchbar />
       </div>
-     
+
     </div>
 
   );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../styles/Searchbar.css";
 import API from "../utils/API";
-import { Container } from "../components/Grid";
+import { Container } from "./Grid";
 import SearchResults from "./SearchResults";
 
 
