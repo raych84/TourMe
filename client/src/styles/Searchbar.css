@@ -1,0 +1,19 @@
+.searchBarmenu{
+    text-align: center;
+    border-radius: 100px;
+}
+.title1{
+   
+   color: white;
+   font-family: 'Catamaran', sans-serif;
+
+   font-size: 35px;
+}
+  .searchBar1{
+    padding-top: 10px;
+    padding-left: 60px;
+    padding-bottom: 10px;
+    opacity: .7;
+    
+     
+  }
