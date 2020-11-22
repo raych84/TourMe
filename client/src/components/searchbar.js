@@ -48,7 +48,7 @@ function Searchbar() {
                             onChange={handleInputChange}
                             placeholder="Search Tours"
                           />
-                          <br />
+                          <br /><br />
                           <button onClick={handleFormSubmit} className="btn btn-outline-light">
                             Tour Me!
                         </button>
