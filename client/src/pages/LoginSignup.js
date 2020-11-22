@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/LoginSignup.css";
+
 
 
 class LoginSignup extends React.Component {
@@ -22,13 +24,15 @@ class LoginSignup extends React.Component {
     switch (this.state.currentView) {
       case "signUp":
         return (
-       
+          <div className='logsignin'>
+          
           <form>
+          
             <h2>
-              Sign up!
+            DISCOVER THE UNDISCOVERED
      </h2>
             <fieldset>
-              <legend>Create Account</legend>
+              <legend> Sign Up!</legend>
               <ul>
                 <li>
                   <label for="username">Username:</label>
@@ -47,13 +51,16 @@ class LoginSignup extends React.Component {
                 </li>
               </ul>
             </fieldset>
-            <button type="create-acct-button" onClick={ () => this.changeView("/user")}>Submit</button>
-            <button type="button" onClick={ () => this.changeView("logIn")}>Have an Account?</button>
+            <button type="create-acct-button" className="btn btn-outline-secondary" onClick={ () => this.changeView("/user")}>Submit</button>
+           <br /><br />
+            <button type="button" className="btn btn-outline-secondary" onClick={ () => this.changeView("logIn")}>Have an Account?</button>
           </form>
+          </div>
          
         )
       case "logIn":
         return (
+          <div className="logsignin2">
           <form>
 
             <h2>Welcome Back!</h2>
@@ -62,10 +69,13 @@ class LoginSignup extends React.Component {
               <ul>
                 <li>
                   <label for="username">Username:</label>
+                  <br />
                   <input type="text" id="username" required />
                 </li>
+                <br />
                 <li>
                   <label for="password">Password:</label>
+                  <br />
                   <input type="password" id="password" required />
                 </li>
                 <li>
@@ -74,9 +84,11 @@ class LoginSignup extends React.Component {
                 </li>
               </ul>
             </fieldset>
-            <button type="login-button" onClick={ () => this.changeView("/user")}>Login</button>
-            <button type="button" onClick={ () => this.changeView("signUp")}>Create an Account</button>
+            <button type="login-button" className="btn btn-outline-light" onClick={ () => this.changeView("/user")}>Login</button>
+            <br /><br />
+            <button type="button" className="btn btn-outline-light" onClick={ () => this.changeView("signUp")}>Create an Account</button>
           </form>
+          </div>
         )
       case "PWReset":
         return (
