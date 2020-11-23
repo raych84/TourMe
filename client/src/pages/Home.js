@@ -1,8 +1,7 @@
 
 import React from "react";
-
 import Hero from "../components/Hero";
-import { SearchResults } from "../components/SearchResults";
+// import { SearchResults } from "../components/SearchResults";
 
 function Home() {
 	return (
@@ -32,12 +31,12 @@ function Home() {
     </div>
 	
 		<hr />
-		<SearchResults />
+		
 
 		</div>
 		<br /><h4>Gallery</h4><div class="row">
 		<br />
-  <div className="col"><SearchResults /></div>
+  <div className="col"></div>
   </div></div></div> </div> 
 			)
 }

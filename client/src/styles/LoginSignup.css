@@ -49,6 +49,7 @@ h2{
 ul {
     list-style: none;
 
+}
 h3{
     color: aliceblue;
     text-align: center;
@@ -56,6 +57,7 @@ h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-top: 50px;
 }
+
 p{
     font-size: 18px;
    
