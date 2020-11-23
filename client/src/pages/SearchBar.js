@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import SearchResults from "../components/SearchResults";
 import "../styles/Searchbar.css";
 import API from "../utils/API";
-import SearchResults from "../components/SearchResults";
+// import SearchResults from "../components/SearchResults";
 
 
 
@@ -13,12 +14,12 @@ class SearchBar extends Component {
   };
 
   componentDidMount() {
-    this.getTours("Paris");
+    this.searchCity("Paris");
   }
 
-  getTours = query => {
+  searchCity = query => {
     console.log("you're looking for ", query)
-    API.getTours(query)
+    API.searchCity(query)
       .then(res => {
         console.log(res.data)
         this.setState({ result: res.data })
@@ -37,18 +38,18 @@ class SearchBar extends Component {
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
-    this.getTours(this.state.search);
+    this.searchCity(this.state.search);
   };
-  handleSavedButton = event => {
-    // console.log(event)
-    event.preventDefault();
-    console.log(this.state.tours)
-    let savedTours = this.state.tours.filter(tour => tour.id === event.target.id)
-    savedTours = savedTours[0];
-    API.saveTour(savedTours)
-        .then(this.setState({ message: alert("Your tour is saved") }))
-        .catch(err => console.log(err))
-}
+//   handleSavedButton = event => {
+//     // console.log(event)
+//     event.preventDefault();
+//     console.log(this.state.tours)
+//     let savedTours = this.state.tours.filter(tour => tour.id === event.target.id)
+//     savedTours = savedTours[0];
+//     API.saveTour(savedTours)
+//         .then(this.setState({ message: alert("Your tour is saved") }))
+//         .catch(err => console.log(err))
+// }
 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
@@ -70,10 +71,11 @@ class SearchBar extends Component {
             <button onClick={this.handleFormSubmit} className="btn btn-outline-secondary mt-3">
               Tour Me!
         </button>
+        <div className="results"></div>
 
           </div>
         </form>
-<SearchResults results={this.state.results} />
+
       </div>
     );
   }
