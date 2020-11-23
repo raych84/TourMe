@@ -12,6 +12,7 @@ import User from "./pages/User"
 
 
 
+
 function App() {
   return (
 
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/loginsignup" component={LoginSignup} />
         <Route exact path="/SavedTours" component={SavedTours} />
         <Route exact path="/user" component={User} />
+        
         <Footer />
       </div>
     </Router>
