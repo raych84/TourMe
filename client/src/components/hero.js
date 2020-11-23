@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Hero.css"
-import Searchbar from "./Searchbar";
+import SearchBar from "../pages/SearchBar";
 
 
 function Hero() {
@@ -14,7 +14,7 @@ function Hero() {
         <h1>
           DISCOVER THE UNDISCOVERED
          </h1>
-        <Searchbar />
+        <SearchBar />
       </div>
 
     </div>
