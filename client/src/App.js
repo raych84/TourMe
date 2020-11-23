@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/loginsignup" component={LoginSignup} />
-        <Route exact path="/savedtours" component={SavedTours} />
+        <Route exact path="/SavedTours" component={SavedTours} />
         <Route exact path="/user" component={User} />
         <Footer />
       </div>

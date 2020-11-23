@@ -7,7 +7,10 @@ function Home() {
 	return (
 		<div>
 			<Hero />
-			<hr />
+
+		<br />
+		<hr />
+
 		</div>
 	)
 }
