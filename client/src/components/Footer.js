@@ -22,8 +22,8 @@ function Footer() {
       <br /><br />
     <h6>Creators:</h6>
         <ul>
-          <li>Rachel Williams <img class="ourPic" src="https://i.ibb.co/vqjK52k/67444614.jpg"></img></li>
-          <li>Brigitte Gil <img class="ourPic" src="https://i.ibb.co/8mtD7wj/69640390.jpg"></img></li>
+          <li>Rachel Williams <img className="ourPic" src="https://i.ibb.co/vqjK52k/67444614.jpg"></img></li>
+          <li>Brigitte Gil <img className="ourPic" src="https://i.ibb.co/8mtD7wj/69640390.jpg"></img></li>
         </ul> 
     </div>
   

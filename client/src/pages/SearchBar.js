@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../styles/Searchbar.css";
 import API from "../utils/API";
-import SearchResults from "./SearchResults";
+import SearchResults from "../components/SearchResults";
 
 
 
@@ -39,6 +39,16 @@ class SearchBar extends Component {
     event.preventDefault();
     this.getTours(this.state.search);
   };
+  handleSavedButton = event => {
+    // console.log(event)
+    event.preventDefault();
+    console.log(this.state.tours)
+    let savedTours = this.state.tours.filter(tour => tour.id === event.target.id)
+    savedTours = savedTours[0];
+    API.saveTour(savedTours)
+        .then(this.setState({ message: alert("Your tour is saved") }))
+        .catch(err => console.log(err))
+}
 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
@@ -63,7 +73,7 @@ class SearchBar extends Component {
 
           </div>
         </form>
-
+<SearchResults results={this.state.results} />
       </div>
     );
   }
