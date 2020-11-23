@@ -1,13 +1,18 @@
 
 import React from "react";
-
+import { Col, Row } from "../components/Grid";
 import Hero from "../components/Hero";
-import { SearchResults } from "../components/SearchResults";
+import SearchResults from "../components/SearchResults";
 
 function Home() {
 	return (
 		<div>
 			<Hero />
+			<Row>
+				<Col size="md-12" >
+				<SearchResults />
+				</Col>
+			</Row>
 			<div className='page'>	
 		
 		<div className="container"> <br />
@@ -15,7 +20,7 @@ function Home() {
 		<div className="row">
 			
 			<br />
-    <div class="col">
+    <div className="col">
 		
       <h3><img src="https://img.icons8.com/offices/2x/statue-of-liberty.png"/><br/>Our Vision</h3>
 	  <p>"Tourism that is ethical, fair, adventurous and a positive experience for the travelers and the places they visit."</p>
@@ -32,12 +37,12 @@ function Home() {
     </div>
 	
 		<hr />
-		<SearchResults />
+	
 
 		</div>
-		<br /><h4>Gallery</h4><div class="row">
+		<br /><h4>Gallery</h4><div className="row">
 		<br />
-  <div className="col"><SearchResults /></div>
+  <div className="col"></div>
   </div></div></div> </div> 
 			)
 }

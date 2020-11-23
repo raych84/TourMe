@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row } from "./Grid"
 
 
+
 function SearchResults(props) {
     return (
     <div>
