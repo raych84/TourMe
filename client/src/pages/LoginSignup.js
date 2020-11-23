@@ -30,7 +30,7 @@ class LoginSignup extends React.Component {
 
           <form>
           
-            <h2>
+            <h2 className="header-login">
             DISCOVER THE UNDISCOVERED
      </h2>
             <fieldset>
@@ -66,7 +66,7 @@ class LoginSignup extends React.Component {
           <div className="logsignin2">
           <form>
 
-            <h2>Welcome Back!</h2>
+            <h2 className="header-login">Welcome Back!</h2>
             <fieldset>
               <legend>Log In</legend>
               <ul>
@@ -98,7 +98,7 @@ class LoginSignup extends React.Component {
       case "PWReset":
         return (
           <form>
-            <h2>Reset Password</h2>
+            <h2 className="header-login">Reset Password</h2>
             <fieldset>
               <legend>Password Reset</legend>
               <ul>
