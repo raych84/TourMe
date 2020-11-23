@@ -14,7 +14,6 @@
 .logsignin2{
     text-align: center;
     background-image:url("https://i.ibb.co/ZT9cmgq/logo2.png");
-  
      height: 700px;
      background-repeat: no-repeat;
      background-size: cover;
@@ -49,6 +48,16 @@
 ul {
     list-style: none;
 }
+
+
+h3{
+    color: aliceblue;
+    text-align: center;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 50px;
+}
+
 
 
 p{

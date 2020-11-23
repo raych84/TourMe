@@ -8,11 +8,7 @@ function Home() {
 	return (
 		<div>
 			<Hero />
-			<Row>
-				<Col size="md-12" >
-				<SearchResults />
-				</Col>
-			</Row>
+			
 			<div className='page'>	
 		
 		<div className="container"> <br />
@@ -42,7 +38,13 @@ function Home() {
 		</div>
 		<br /><h4>Gallery</h4><div className="row">
 		<br />
-  <div className="col"></div>
+  <div className="col">
+  <Row>
+				<Col size="md-12 page" >
+				<SearchResults />
+				</Col>
+			</Row>
+  </div>
   </div></div></div> </div> 
 			)
 }

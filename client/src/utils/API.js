@@ -14,12 +14,15 @@ export default {
 	getTours: function (query) {
 		return axios.get("/api/tours" );
 	},
+
 	getSaved: function (id) {
 		return axios.get("/api/tours" + id);
 	},
+
 	deleteSaved: function (id) {
 		return axios.delete("/api/tours/" + id);
 	},
+	
 	saveTour: function (post) {
 		return axios.post("/api/tours", post);
 	}
