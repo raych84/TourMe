@@ -1,12 +1,31 @@
 
   
   .Footer {
-    position: absolute;
+    
     left:0px;
     bottom:0px;
     width:100%;
-    height: 5%;
-    border-top: grey solid 1px;
     text-align: center;
     
+  }
+  .ankle {
+    left:0px;
+    bottom:0px;
+    width:100%;
+    border-top: grey solid 1px;
+    
+  }
+  .ourPic {
+    border-radius: 50px;
+    height: 40px;
+  }
+  h6{
+    color: gray;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-left: 50px;
+
+  }
+  span{
+    color: green;
+    font-weight: bold;
   }
