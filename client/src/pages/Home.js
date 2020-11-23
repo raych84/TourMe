@@ -1,4 +1,6 @@
+
 import React from "react";
+
 import Hero from "../components/Hero";
 import { SearchResults } from "../components/SearchResults";
 
@@ -31,6 +33,7 @@ function Home() {
 	
 		<hr />
 		<SearchResults />
+
 		</div>
 		<br /><h4>Gallery</h4><div class="row">
 		<br />
