@@ -8,7 +8,7 @@ import { Col, Row, Container } from "../components/Grid";
 
 function SavedTours() {
   const [tours, setTours] = useState([])
-  const [formObject, setFormObject] = useState({})
+  // const [formObject, setFormObject] = useState({})
 
   useEffect(() => {
     loadTours()

@@ -22,7 +22,7 @@ class LoginSignup extends React.Component {
     switch (this.state.currentView) {
       case "signUp":
         return (
-       
+
           <form>
             <h2>
               Sign up!
@@ -32,25 +32,25 @@ class LoginSignup extends React.Component {
               <ul>
                 <li>
                   <label for="username">Username:</label>
-                  <br/>
+                  <br />
                   <input type="text" id="username" required />
                 </li>
                 <li>
                   <label for="email">Email:</label>
-                  <br/>
+                  <br />
                   <input type="email" id="email" required />
                 </li>
                 <li>
                   <label for="password">Password:</label>
-                  <br/>
+                  <br />
                   <input type="password" id="password" required />
                 </li>
               </ul>
             </fieldset>
-            <button type="create-acct-button" onClick={ () => this.changeView("/user")}>Submit</button>
-            <button type="button" onClick={ () => this.changeView("logIn")}>Have an Account?</button>
+            <button type="create-acct-button" onClick={() => this.changeView("/user")}>Submit</button>
+            <button type="button" onClick={() => this.changeView("logIn")}>Have an Account?</button>
           </form>
-         
+
         )
       case "logIn":
         return (
@@ -69,13 +69,13 @@ class LoginSignup extends React.Component {
                   <input type="password" id="password" required />
                 </li>
                 <li>
-                  <i/>
-                  <a onClick={ () => this.changeView("PWReset")} href="/">Forgot Password?</a>
+                  <i />
+                  <a onClick={() => this.changeView("PWReset")} href="/">Forgot Password?</a>
                 </li>
               </ul>
             </fieldset>
-            <button type="login-button" onClick={ () => this.changeView("/user")}>Login</button>
-            <button type="button" onClick={ () => this.changeView("signUp")}>Create an Account</button>
+            <button type="login-button" onClick={() => this.changeView("/user")}>Login</button>
+            <button type="button" onClick={() => this.changeView("signUp")}>Create an Account</button>
           </form>
         )
       case "PWReset":

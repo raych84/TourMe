@@ -1,87 +1,72 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import "../styles/Searchbar.css";
 import API from "../utils/API";
-import { Container, Row, Col } from "./Grid";
-import { SearchResults, TourListItems, } from "./SearchResults";
-import { Form, Input, FormBtn } from "./Form";
+import SearchResults from "./SearchResults";
 
 
 
-function Searchbar() {
-
-  const [tours, setTours] = useState([]);
-  const [tourSearch, setTourSearch] = useState("");
-
-  const handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { value } = event.target;
-    setTourSearch(value);
+class SearchBar extends Component {
+  // Setting the component's initial state
+  state = {
+    search: "",
+    results: []
   };
 
-  const handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-    event.preventDefault();
-    API.getTours(tourSearch)
-      .then(res => setTours(res.data))
+  componentDidMount() {
+    this.getTours("Paris");
+  }
+
+  getTours = query => {
+    console.log("you're looking for ", query)
+    API.getTours(query)
+      .then(res => {
+        console.log(res.data)
+        this.setState({ result: res.data })
+      })
       .catch(err => console.log(err));
   };
 
-  return (
-    <div>
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
 
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <form>
-              <Container>
-                <Row>
-                  <Col size="xs-9 sm-10">
-                    <div className="searchBarmenu">
-                      <form>
-                        <div className="form-group">
-                          <label htmlFor="search" className="title1">Let's Tour Around.</label>
-                          <br />
-                          <input className="searchBar1"
-                            name="TourSearch"
-                            value={tourSearch}
-                            onChange={handleInputChange}
-                            placeholder="Search Tours"
-                          />
-                          <br />
-                          <button onClick={handleFormSubmit} className="btn btn-outline-light">
-                            Tour Me!
-                        </button>
-                        </div>
-                      </form>
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
-            </form>
-          </Col>
-        </Row>
-     
-        <Row>
-          <Col size="xs-12">
-            <SearchResults>
-              {tours.map(recipe => {
-                return (
-                  <TourListItems
-                    key={tours.title}
-                    title={tours.title}
-                    location={tours.location}
-                    image={tours.image}
-                  />
-                );
-              })}
-            </SearchResults>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+  // When the form is submitted, search the OMDB API for the value of `this.state.search`
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.getTours(this.state.search);
+  };
+
+  render() {
+    // Notice how each input has a `value`, `name`, and `onChange` prop
+    return (
+      <div className="searchBarmenu">
+
+        <form>
+          <div className="form-group">
+            <label htmlFor="search" className="title1">Let's Tour Around.</label>
+            <br></br>
+            <input className='searchBar1'
+              onChange={this.handleInputChange}
+              value={this.search}
+              name="search"
+              type="text"
+              placeholder="Search for a City"
+              id="search"
+            /><br></br>
+            <button onClick={this.handleFormSubmit} className="btn btn-outline-secondary mt-3">
+              Tour Me!
+        </button>
+
+          </div>
+        </form>
+
+      </div>
+    );
+  }
 }
 
-
-export default Searchbar;
+export default SearchBar;

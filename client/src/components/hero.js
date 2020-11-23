@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Hero.css"
-import Searchbar from "./Searchbar";
+import Searchbar from "../components/Searchbar";
 
 
 function Hero() {
