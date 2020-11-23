@@ -12,7 +12,7 @@ export default {
 	},
 
 	getTours: function (query) {
-		return axios.get("/api/tours");
+		return axios.get("/api/tours" );
 	},
 	getSaved: function (id) {
 		return axios.get("/api/tours" + id);
@@ -20,7 +20,7 @@ export default {
 	deleteSaved: function (id) {
 		return axios.delete("/api/tours/" + id);
 	},
-	saveTour: function (postData) {
-		return axios.post("/api/tours", postData);
+	saveTour: function (post) {
+		return axios.post("/api/tours", post);
 	}
 };
