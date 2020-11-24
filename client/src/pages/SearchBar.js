@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import SearchResults from "../components/SearchResults";
 import "../styles/Searchbar.css";
 import API from "../utils/API";
-// import SearchResults from "../components/SearchResults";
-
 
 
 class SearchBar extends Component {
@@ -35,27 +33,21 @@ class SearchBar extends Component {
     });
   };
 
-  // When the form is submitted, search the OMDB API for the value of `this.state.search`
+
   handleFormSubmit = event => {
     event.preventDefault();
     this.searchCity(this.state.search);
   };
-//   handleSavedButton = event => {
-//     // console.log(event)
-//     event.preventDefault();
-//     console.log(this.state.tours)
-//     let savedTours = this.state.tours.filter(tour => tour.id === event.target.id)
-//     savedTours = savedTours[0];
-//     API.saveTour(savedTours)
-//         .then(this.setState({ message: alert("Your tour is saved") }))
-//         .catch(err => console.log(err))
-// }
+  handleSavedButton = post => {
+    // console.log(post)
+     API.saveTour(post)
+        .then(this.setState({ message: alert("Your tour is saved") }))
+        .catch(err => console.log(err))
+}
 
   render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
-    return (
+       return (
       <div className="searchBarmenu">
-
         <form>
           <div className="form-group">
             <label htmlFor="search" className="title1">Let's Tour Around.</label>
@@ -70,12 +62,9 @@ class SearchBar extends Component {
             /><br></br>
             <button onClick={this.handleFormSubmit} className="btn btn-outline-secondary mt-3">
               Tour Me!
-        </button>
-        <div className="results"></div>
-
+        </button>  
           </div>
         </form>
-
       </div>
     );
   }

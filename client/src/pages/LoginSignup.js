@@ -1,18 +1,27 @@
-import React from "react";
+import React, { Component} from "react";
 import "../styles/LoginSignup.css";
+import User from "./User";
 
 
-
-class LoginSignup extends React.Component {
+class LoginSignup extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currentView: "signUp",
-      username: "",
-      password: "",
-      email: ""
+      currentPage: "loginsignup"
     }
   }
+  handlePageChange = page => {
+    this.setState({ currentPage: page});
+  };
+
+  renderPageChange = () => {
+    if (this.state.currentPage === "LoginSignup") {
+      return <User />;
+    } else if (this.state.currentPage === "User") {
+      return <User />
+    }
+  };
 
   changeView = (view) => {
     this.setState({
@@ -54,7 +63,7 @@ class LoginSignup extends React.Component {
               </ul>
             </fieldset>
 
-            <button type="create-acct-button" className="btn btn-outline-secondary" onClick={ () => this.changeView("/user")}>Submit</button>
+            <button type="create-acct-button" className="btn btn-outline-secondary" onClick={ () => this.handlePageChange("user")}>Submit</button>
            <br /><br />
             <button type="button" className="btn btn-outline-secondary" onClick={ () => this.changeView("logIn")}>Have an Account?</button>
           </form>
@@ -83,12 +92,12 @@ class LoginSignup extends React.Component {
                 </li>
                 <li>
                   <i />
-                  <a onClick={() => this.changeView("PWReset")} href="/">Forgot Password?</a>
+                  <a onClick={() => this.changeView("PWReset")} href="#">Forgot Password?</a>
                 </li>
               </ul>
             </fieldset>
 
-            <button type="login-button" className="btn btn-outline-light" onClick={ () => this.changeView("/user")}>Login</button>
+            <button type="login-button" className="btn btn-outline-light" onClick={ () => this.handlePageChange("/user")}>Login</button>
             <br /><br />
             <button type="button" className="btn btn-outline-light" onClick={ () => this.changeView("signUp")}>Create an Account</button>
 
@@ -98,6 +107,7 @@ class LoginSignup extends React.Component {
       case "PWReset":
         return (
           <form>
+            <div className="logsignin2">
             <h2 className="header-login">Reset Password</h2>
             <fieldset>
               <legend>Password Reset</legend>
@@ -113,6 +123,7 @@ class LoginSignup extends React.Component {
             </fieldset>
             <button>Send Reset Link</button>
             <button type="button" onClick={() => this.changeView("logIn")}>Go Back</button>
+            </div>
           </form>
         )
       default:

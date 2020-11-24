@@ -1,23 +1,44 @@
-const express = require("express");
-const path = require("path");
-const mongoose = require("mongoose");
-const routes = require("./routes");
-const PORT = process.env.PORT || 3001;
-const app = express();
+// Import Mongoose
+const mongoose = require('mongoose');
 
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
-app.use(routes);
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-// mongoose connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/tourmetours")
+// Configure Enviornment
+require('dotenv').config({ path: './config.env' });
 
-app.listen(PORT, function() {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+// Import App
+const app = require('./app');
+
+// Handle Uncaught Exceptions
+process.on('uncaughtException', err => {
+	console.log('🔥 UNCAUGHT EXCEPTION! Shutting down application!');
+	console.log(err.name, err.message);
+	process.exit();
 });
+
+
+
+// Initialize DB Connection
+const dbConnectionString = process.env.DB_CONNECTION.replace('<password>', process.env.DB_PASSWORD).replace('<dbname>', process.env.DB_NAME).replace('<username>', process.env.DB_USERNAME);
+
+mongoose.connect(dbConnectionString, {
+	useUnifiedTopology: true,
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useFindAndModify: false
+}).then(() => console.log('DB Connection Successful'))
+	.catch(err => console.log(err));
+
+
+const PORT = process.env.PORT || 4001;
+
+const server = app.listen(PORT, () => console.log(`App running on port ${PORT}`));
+
+process.on('unhandledRejection', err => {
+	console.log('🔥 UNCAUGHT REJECTION! Shutting down application!');
+	console.log(err.name, err.message);
+	server.close(() => process.exit(1))
+});
+
+process.on('SIGTERM', () => {
+	console.log('SIGTERM Recieved. Shutting down application.');
+	server.close(() => console.log('Application shut down'))
+})

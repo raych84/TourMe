@@ -27,7 +27,7 @@ function SearchResults(props) {
           </Row>
           <br></br>
           <Row className="buttonDiv ">
-            <button className="saveTourbtn btn-success btn-sm" id={props.id} onClick={(event) => props.handleSavedButton(event)}>
+            <button className="saveTourbtn btn-success btn-sm" id={props.id} onClick={(post) => props.handleSavedButton(post)}>
               Save Tour
             </button>
 

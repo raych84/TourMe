@@ -15,7 +15,7 @@ function SavedTours() {
   }, [])
 
   function loadTours() {
-    API.getTours()
+    API.getSaved()
       .then(res =>
         setTours(res.data)
       )

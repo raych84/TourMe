@@ -1,37 +1,31 @@
-const db = require("../models");
+const catchAsync = require('../utils/catchAsync');
+const Tour = require('../models/tour');
 
-// Defining methods for the ToursController
-module.exports = {
-  findAll: function(req, res) {
-    db.Tours
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findById: function(req, res) {
-    db.Tours
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function(req, res) {
-    db.Tours
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    db.Tours
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  remove: function(req, res) {
-    db.Tours
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  }
-};
+exports.create = catchAsync(async (req, res, next) => {
+
+	res.status(200).json({
+		status: 'success',
+		message: 'A new tour has been created'
+	})
+
+});
+
+
+exports.getAll = catchAsync(async (req, res, next) => {
+
+});
+
+
+exports.getOne = catchAsync(async (req, res, next) => {
+
+});
+
+
+exports.update = catchAsync(async (req, res, next) => {
+
+});
+
+
+exports.delete = catchAsync(async (req, res, next) => {
+
+});
