@@ -19,6 +19,7 @@ process.on('uncaughtException', err => {
 // Initialize DB Connection
 const dbConnectionString = process.env.DB_CONNECTION.replace('<password>', process.env.DB_PASSWORD).replace('<dbname>', process.env.DB_NAME).replace('<username>', process.env.DB_USERNAME);
 
+
 mongoose.connect(dbConnectionString, {
 	useUnifiedTopology: true,
 	useNewUrlParser: true,
