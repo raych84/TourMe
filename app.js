@@ -40,5 +40,11 @@ app.use('/auth', authRouter);
 app.use('/api/tours', tourRouter);
 
 
+// Enable Public Directory
+app.use('/', express.static(__dirname + '/client/build'));
+
+app.all('*', (req, res) => res.sendFile(__dirname + '/client/build/index.html'));
+
+
 // Export App
 module.exports = app;
